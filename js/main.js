@@ -27,3 +27,17 @@ nextDom.addEventListener('click',
         }
     }
 )
+
+previousDom.addEventListener('click',
+    function () {
+        imagesList[activeImage].classList.remove('show');
+        activeImage--;
+        imagesList[activeImage].classList.add('show');
+
+        nextDom.classList.remove('d-none')
+
+        if (activeImage == 0) {
+            previousDom.classList.add('d-none')
+        }
+    }
+)
