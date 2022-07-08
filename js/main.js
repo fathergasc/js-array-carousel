@@ -1,6 +1,6 @@
 const images = ["img/01.jpg", "img/02.jpg", "img/03.jpg", "img/04.jpg", "img/05.jpg"];
 
-let firstImage = 0;
+let activeImage = 0;
 
 const sliderDom = document.querySelector('.slider');
 
@@ -9,7 +9,21 @@ for (let i = 0; i < images.length; i++) {
 }
 
 const imagesList = document.querySelectorAll('.card');
-imagesList[firstImage].classList.add('show');
+imagesList[activeImage].classList.add('show');
 
-const nextDom = document.getElementsByClassName('next')
-const previousDom = document.getElementsByClassName('previous')
+const nextDom = document.getElementById('next');
+const previousDom = document.getElementById('previous');
+
+nextDom.addEventListener('click',
+    function () {
+        imagesList[activeImage].classList.remove('show');
+        activeImage++;
+        imagesList[activeImage].classList.add('show');
+
+        previousDom.classList.remove('d-none')
+
+        if (activeImage == imagesList.length - 1) {
+            nextDom.classList.add('d-none')
+        }
+    }
+)
