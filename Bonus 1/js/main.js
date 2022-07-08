@@ -17,27 +17,29 @@ const previousDom = document.getElementById('previous');
 nextDom.addEventListener('click',
     function () {
         imagesList[activeImage].classList.remove('show');
-        activeImage++;
+        
+        if (activeImage == imagesList.length - 1) {
+            activeImage = 0;
+        } else {
+            activeImage++;
+        }
         imagesList[activeImage].classList.add('show');
 
-        previousDom.classList.remove('d-none')
-
-        if (activeImage == imagesList.length - 1) {
-            nextDom.classList.add('d-none')
-        }
+        
     }
 )
 
 previousDom.addEventListener('click',
     function () {
         imagesList[activeImage].classList.remove('show');
-        activeImage--;
+        
+        if (activeImage == 0) {
+            activeImage = imagesList.length - 1;
+        } else {
+            activeImage--;
+        }
         imagesList[activeImage].classList.add('show');
 
-        nextDom.classList.remove('d-none')
-
-        if (activeImage == 0) {
-            previousDom.classList.add('d-none')
-        }
+        
     }
 )
